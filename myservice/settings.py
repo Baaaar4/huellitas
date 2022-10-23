@@ -27,11 +27,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*g52g*qai@9m-sukyy$sqo9+!&-biw%#my8fx9n*s!s)&)6%0$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [ 
     'huellitas.azurewebsites.net',             
-    #'127.0.0.1'
+    '127.0.0.1'
 ]
 
 
