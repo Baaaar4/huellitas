@@ -2,11 +2,13 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import django
 
 
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myservice.settings')
+    django.setup()
     '''if not 'WEBSITE_HOSTNAME' in os.environ:
         print("Loading environment variables for .env file")
         load_dotenv('./.env')
