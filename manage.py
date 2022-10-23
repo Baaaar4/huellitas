@@ -6,6 +6,7 @@ import sys
 
 def main():
     """Run administrative tasks."""
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myservice.settings')
     '''if not 'WEBSITE_HOSTNAME' in os.environ:
         print("Loading environment variables for .env file")
         load_dotenv('./.env')
