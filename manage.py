@@ -6,7 +6,13 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myservice.settings')
+    if not 'WEBSITE_HOSTNAME' in os.environ:
+        print("Loading environment variables for .env file")
+        load_dotenv('./.env')
+
+
+    ettings_module = "myservice.production" if 'WEBSITE_HOSTNAME' in os.environ else 'myservice.settings'
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
