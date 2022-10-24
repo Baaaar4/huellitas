@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login
 
+
+
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
@@ -46,3 +48,5 @@ def perfil(request):
 def tareas(request):
     return render(request, 'tareas.html')
 
+def header(request):
+    return render(request, 'header.html')
