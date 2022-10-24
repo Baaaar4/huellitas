@@ -86,17 +86,19 @@ PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 
-hostname = os.environ['huellitas-server']
+
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['postgres'],
-        'HOST': hostname + ".postgres.database.azure.com"
-        'USER': os.environ['sdxqqozjbg'],
-        'PASSWORD': os.environ['2L113C386F7J34AH$'] 
+        'NAME': 'postgres',
+        'USER': 'sdxqqozjbg',
+        'PASSWORD': '2L113C386F7J34AH$', 
+        'HOST': 'huellitas-server.postgres.database.azure.com',   
+        "PORT":"5432",
+        'OPTIONS':{'sslmode':'require'},
     }
 }
 
