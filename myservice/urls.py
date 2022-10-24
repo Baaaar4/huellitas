@@ -26,7 +26,7 @@ urlpatterns = [
     path('agendarcita', views.agendarcita, name='agendarcita'),
     path('login', views.login, name='login'),
     path('perfil', views.perfil, name='perfil'),
-    path('tareas', views.tareas, name='tareas'),
+    path('tarea', views.tarea, name='tarea'),
     path('header', views.header, name='header'),
    
 

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import Template, Context
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -30,7 +30,8 @@ def login(request):
                 user = User.objects.create_user(username=request.POST['username'], 
                 password=request.POST['password1'])
                 user.save()
-                return redirect('tareas')
+                login(request, user)
+                return redirect('tarea')
             except:
                 return render(request, 'login.html', {
                 'form': UserCreationForm,
@@ -45,8 +46,8 @@ def login(request):
 def perfil(request):
     return render(request, 'perfil.html')
 
-def tareas(request):
-    return render(request, 'tareas.html')
+def tarea(request):
+    return render(request, 'tarea.html')
 
 def header(request):
     return render(request, 'header.html')
