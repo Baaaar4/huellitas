@@ -9,6 +9,12 @@ from django.contrib.auth import login
 def home(request):
     return render(request, 'home.html')
 
+def servicios(request):
+    return render(request, 'servicios.html')
+
+def agendarcita(request):
+    return render(request, 'agendarcita.html')
+
 def login(request):
     
     if request.method == 'GET':
