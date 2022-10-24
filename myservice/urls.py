@@ -24,10 +24,10 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('servicios', views.servicios, name='servicios'),
     path('agendarcita', views.agendarcita, name='agendarcita'),
-    path('login', views.login, name='login'),
+    path('signup', views.signup, name='signup'),
     path('perfil', views.perfil, name='perfil'),
     path('tarea', views.tarea, name='tarea'),
-    path('header', views.header, name='header'),
+    path('logout', views.cerrar, name='logout'),
    
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
