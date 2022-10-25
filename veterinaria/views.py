@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
-from .forms import * 
+from .forms import AtenForm 
 from .models import *
 
 
@@ -54,11 +54,11 @@ def mascota(request):
 def nueva_atencion(request):
     if request.method == 'GET':
         return render(request, 'nueva_atencion.html', {
-        'form': AtenForm
-    })
+            'form ': AtenForm
+        })
     else:
         try:
-            AtenForm(request.POST)
+            form = AtenForm(request.POST)
             new_atn = form.save(commit=False)
             new_atn.user =request.user
             new_atn.save()
