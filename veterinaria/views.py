@@ -4,11 +4,11 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
-from .forms import *
-from .models import *
+import .forms as forms 
+import .models as models
 
 
-# Create your views here.
+# Create your views h   ere.
 def home(request):
     return render(request, 'home.html')
 
