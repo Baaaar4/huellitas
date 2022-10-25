@@ -4,8 +4,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
-import .forms as forms 
-import .models as models
+from .forms import * 
+from .models import *
 
 
 # Create your views h   ere.
@@ -56,7 +56,7 @@ def nueva_atencion(request):
         return render(request, 'nueva_atencion.html', {
         'form': AtenForm
     })
-     else:
+    else:
         try:
             AtenForm(request.POST)
             new_atn = form.save(commit=False)
@@ -67,7 +67,7 @@ def nueva_atencion(request):
             return render(request, 'nueva_atencion.html', {
             'form': AtenForm,
             'error': 'Ingrese datos válidos'
-        })
+            })
 
 def header(request):
     return render(request, 'header.html')

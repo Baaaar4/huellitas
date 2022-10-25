@@ -1,7 +1,7 @@
-from django.forms import modelform_factory
-from .models import *
+from django.forms import ModelForm
+from .models import Atenciones
 
 class AtenForm(ModelForm):
     class Meta:
         model = Atenciones
-        fields = ['description', 'peluqueria', 'medicamentos']
+        fields = ['descripcion', 'peluqueria', 'medicamentos']
