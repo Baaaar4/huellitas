@@ -48,7 +48,7 @@
                {% if user.is_authenticated %}
                  <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
                 {% else %}
-                 <li><a class="nav-link scrollto" href="{% url 'login' %}">Registrarse</a></li>
+                 <li><a class="nav-link scrollto" href="{% url 'signup' %}">Registrarse</a></li>
                  <li><a class="nav-link scrollto" href="{% url 'signin' %}">Entrar</a></li>
                 {% endif %}
                 </ul>
