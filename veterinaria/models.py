@@ -47,7 +47,6 @@ class Funcionario(models.Model):
     cargo = models.ForeignKey('Cargo', on_delete=models.RESTRICT)
 
 
-
     
 class Cargo(models.Model):
     nombre_c = models.CharField(max_length=30,primary_key=True)
