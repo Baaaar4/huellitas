@@ -4,7 +4,7 @@ from django import forms
 # Create your models here.
 
 
-'''class Dueno(models.Model):
+class Dueno(models.Model):
 	nombre_d = models.Charfield(max_length=20)
 	apellido_d = models.Charfield(max_length=20)
 	rut_d = models.PositiveIntegerField(max_length=9)
@@ -35,5 +35,5 @@ class Funcionario(models.Model):
 	cargo = models.ForeignKey('Cargo', on_delete=models.RESTRICT)
 
 class Cargo(models.Model):
-	nombre_c = models.Charfield(max_length=10)'''
+	nombre_c = models.Charfield(max_length=10)
 	

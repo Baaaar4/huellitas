@@ -54,7 +54,7 @@ def header(request):
 
 def cerrar(request):
     logout(request)
-    return redirect ('home.html')
+    return redirect ('home')
 
 
 def signin(request):
