@@ -33,6 +33,8 @@ class Atenciones(models.Model):
     peluqueria = models.BooleanField(default=False)
     mascota = models.ForeignKey('Mascota', on_delete=models.RESTRICT)	
     funcionario = models.ForeignKey('Funcionario', on_delete=models.RESTRICT)
+    def __str__(self):
+        return self.date + '- by ' + self.Funcionario.nombre_f
 
     
 

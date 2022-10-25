@@ -4,7 +4,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
-
+from .forms import *
+from .models import *
 
 
 # Create your views here.
@@ -46,8 +47,27 @@ def signup(request):
 def perfil(request):
     return render(request, 'perfil.html')
 
-def tarea(request):
-    return render(request, 'tarea.html')
+def mascota(request):
+    mascota = Mascota.objects.filter(user=request.user)
+    return render(request, 'mascota.html', {'mascota': mascota})
+
+def nueva_atencion(request):
+    if request.method == 'GET':
+        return render(request, 'nueva_atencion.html', {
+        'form': AtenForm
+    })
+     else:
+        try:
+            AtenForm(request.POST)
+            new_atn = form.save(commit=False)
+            new_atn.user =request.user
+            new_atn.save()
+            return redirect('mascota')
+        except:
+            return render(request, 'nueva_atencion.html', {
+            'form': AtenForm,
+            'error': 'Ingrese datos válidos'
+        })
 
 def header(request):
     return render(request, 'header.html')
