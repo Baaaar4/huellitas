@@ -28,6 +28,7 @@ urlpatterns = [
     path('signin', views.signin, name='signin'),
     path('perfil', views.perfil, name='perfil'),
     path('mascota', views.mascota, name='mascota'),
+    path('task/<int:mascota_id>/', views.mascota_detail, name='mascota_detail'),
     path('logout', views.cerrar, name='logout'),
     path('atencion/nueva', views.nueva_atencion, name='nueva_atencion'),
    

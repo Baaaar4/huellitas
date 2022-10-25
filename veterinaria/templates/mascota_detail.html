@@ -1,0 +1,26 @@
+{% include "header.html" %}
+{% load static %}
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+<h1> {{mascota.nombre_m}}</h1>
+
+<ul>
+        {% for mascota in mascota%}
+
+        <li>
+                <h1>{{mascota.raza}}</h1>
+                <h1>{{mascota.patologias}}</h1>
+                <h1>{{mascota.dueno}}</h1>
+        
+        </li>
+        {% endfor %}    
+
+</ul>
+
+{% include "footer.html" %}

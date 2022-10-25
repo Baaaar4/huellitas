@@ -1,25 +1,26 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django import forms
-from django.core.validators import MaxValueValidator, MinValueValidator 
+
 
 
 # Create your models here.
 
 
 class Dueno(models.Model):
-    nombre_d = models.CharField(max_length=20)
-    apellido_d = models.CharField(max_length=20)
-    rut_d = models.PositiveIntegerField(validators=[MinValueValidator(7), MaxValueValidator(8)])
-    telefono = models.PositiveIntegerField(validators=[MinValueValidator(8), MaxValueValidator(9)])
-    direccion = models.CharField(max_length=30)
+    nombre_d = models.CharField(max_length=50)
+    apellido_d = models.CharField(max_length=50)
+    rut_d = models.CharField(max_length=9, primary_key=True)
+    telefono = models.CharField(max_length=9)
+    direccion = models.CharField(max_length=100)
     user_d = models.ForeignKey(User, on_delete=models.RESTRICT)
 
 
 
 class Mascota(models.Model):
-    nombre_m = models.CharField(max_length=20)
-    raza = models.CharField(max_length=10)
+    nombre_m = models.CharField(max_length=50)
+    tipo_m = models.CharField(max_length=30)
+    raza = models.CharField(max_length=30)
     patologias = models.TextField(blank=True)
     dueno = models.ForeignKey('Dueno', on_delete=models.RESTRICT)
 
@@ -39,9 +40,9 @@ class Atenciones(models.Model):
     
 
 class Funcionario(models.Model):
-    nombre_f = models.CharField(max_length=20)
-    apellido_f = models.CharField(max_length=20)
-    rut_f = models.PositiveIntegerField(validators=[MinValueValidator(7), MaxValueValidator(8)])
+    nombre_f = models.CharField(max_length=50)
+    apellido_f = models.CharField(max_length=50)
+    rut_f = models.CharField(max_length=9, primary_key=True)
     user_f = models.ForeignKey(User, on_delete=models.RESTRICT)
     cargo = models.ForeignKey('Cargo', on_delete=models.RESTRICT)
 
@@ -49,7 +50,7 @@ class Funcionario(models.Model):
 
     
 class Cargo(models.Model):
-    nombre_c = models.CharField(max_length=10)
+    nombre_c = models.CharField(max_length=30,primary_key=True)
     descripcion_c = models.TextField(blank=True)
 
  

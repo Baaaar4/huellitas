@@ -1,11 +1,12 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.template import Template, Context
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from .forms import AtenForm 
-from .models import *
+from .models import Mascota, Atenciones, Funcionario, Cargo, Dueno
+
 
 
 # Create your views h   ere.
@@ -48,8 +49,12 @@ def perfil(request):
     return render(request, 'perfil.html')
 
 def mascota(request):
-    mascota = Mascota.objects.filter(user=request.user)
-    return render(request, 'mascota.html', {'mascota': mascota})
+    mascotas = Mascota.objects.filter(user=request.user)
+    return render(request, 'mascota.html', {'mascotas': mascotas})
+
+def mascota_detail(request, mascota_id):
+    mascota = get_object_or_404(Mascota,pk=mascota_id)
+    return render(request, 'mascota_detail.html',{'mascota': mascota})
 
 def nueva_atencion(request):
     if request.method == 'GET':
