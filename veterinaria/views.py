@@ -47,13 +47,14 @@ def signup(request):
 def perfil(request):
     return render(request, 'perfil.html')
 
-def mascota(request):
-    mascotas = Mascota.objects.filter(Dueno, user_d=request.user)
-    return render(request, 'mascota.html', {'mascotas': mascotas})
+def mascota(request, user_d):
+    duenio = Dueno.objects.filter(user_d=request.user)
+    #mascota = get_object_or_404(Mascota,pk=mascota_id)
+    return render (request, 'mascota.html', ({'duenio': duenio}))
 
 def mascota_detail(request, mascota_id):
     mascota = get_object_or_404(Mascota,pk=mascota_id)
-    return render(request, 'mascota_detail.html',{'mascota': mascota})
+    return render(request, 'mascota_detail.html',({'mascota': mascota}))
 
 def nueva_atencion(request):
     if request.method == 'GET':
