@@ -24,7 +24,7 @@ class Mascota(models.Model):
     patologias = models.TextField(blank=True)
     dueno = models.ForeignKey('Dueno', on_delete=models.RESTRICT)
 
-    def __str__(self, Dueno):
+    def __str__(self):
         return self.nombre_m 
 
 
