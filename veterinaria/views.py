@@ -20,7 +20,6 @@ def agendarcita(request):
     return render(request, 'agendarcita.html')
 
 def signup(request):
-    
     if request.method == 'GET':
         return render(request, 'signup.html', {
             'form': UserCreationForm
@@ -33,13 +32,13 @@ def signup(request):
                 password=request.POST['password1'])
                 user.save()
                 login(request, user)
-                return redirect('tarea')
+                return redirect('mascota')
             except:
-                return render(request, 'login.html', {
+                return render(request, 'signup.html', {
                 'form': UserCreationForm,
                 'error': 'El Usuario ya existe'
                 })
-        return render(request, 'login.html', {
+        return render(request, 'signup.html', {
             'form': UserCreationForm,
             'error': 'El Usuario ya existe'
             })
@@ -79,7 +78,7 @@ def header(request):
 
 def cerrar(request):
     logout(request)
-    return redirect ('')
+    return redirect ('/')
 
 
 def signin(request):
@@ -96,6 +95,6 @@ def signin(request):
         })
         else:
             login(request, user)
-            return redirect('tarea')    
+            return redirect('mascota')    
 
 

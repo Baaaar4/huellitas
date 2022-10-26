@@ -49,7 +49,7 @@ class Funcionario(models.Model):
 
     
 class Cargo(models.Model):
-    nombre_c = models.CharField(max_length=30)
+    nombre_c = models.CharField(max_length=20)
     descripcion_c = models.TextField(blank=True)
 
  
