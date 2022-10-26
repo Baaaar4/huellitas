@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import login, logout, authenticate
 from .forms import AtenForm 
-from .models import Mascota, Atenciones, Funcionario, Cargo, Dueno
+from .models import Mascota, Atenciones, Funcionario, Dueno
 
 
 

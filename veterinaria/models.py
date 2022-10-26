@@ -44,12 +44,8 @@ class Funcionario(models.Model):
     apellido_f = models.CharField(max_length=50)
     rut_f = models.CharField(max_length=9, primary_key=True)
     user_f = models.ForeignKey(User, on_delete=models.RESTRICT)
-    cargo = models.ForeignKey('Cargo', on_delete=models.RESTRICT)
+   
 
 
-    
-class Cargo(models.Model):
-    nombre_c = models.CharField(max_length=20, null=True)
-    descripcion_c = models.TextField(blank=True)
 
  
