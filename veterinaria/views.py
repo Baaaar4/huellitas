@@ -48,7 +48,7 @@ def perfil(request):
     return render(request, 'perfil.html')
 
 def mascota(request):
-    mascotas = Mascota.objects.filter(user=request.user)
+    mascotas = Mascota.objects.filter(Dueno, user_d=request.user)
     return render(request, 'mascota.html', {'mascotas': mascotas})
 
 def mascota_detail(request, mascota_id):

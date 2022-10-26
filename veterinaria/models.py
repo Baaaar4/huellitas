@@ -24,8 +24,9 @@ class Mascota(models.Model):
     patologias = models.TextField(blank=True)
     dueno = models.ForeignKey('Dueno', on_delete=models.RESTRICT)
 
+    def __str__(self, Dueno):
+        return self.nombre_m 
 
-	
 
 class Atenciones(models.Model):
     descripcion = models.TextField(blank=True)
@@ -34,6 +35,8 @@ class Atenciones(models.Model):
     peluqueria = models.BooleanField(default=False)
     mascota = models.ForeignKey('Mascota', on_delete=models.RESTRICT)	
     funcionario = models.ForeignKey('Funcionario', on_delete=models.RESTRICT)
+
+   
     
 
 class Funcionario(models.Model):
