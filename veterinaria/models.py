@@ -14,6 +14,9 @@ class Dueno(models.Model):
     telefono = models.CharField(max_length=9)
     direccion = models.CharField(max_length=100)
     user_d = models.ForeignKey(User, on_delete=models.RESTRICT)
+    
+    def __str__(self):
+        return self.nombre_d + ' ' + self.apellido_d 
 
 
 
@@ -44,6 +47,9 @@ class Funcionario(models.Model):
     apellido_f = models.CharField(max_length=50)
     rut_f = models.CharField(max_length=9, primary_key=True)
     user_f = models.ForeignKey(User, on_delete=models.RESTRICT)
+
+    def __str__(self):
+        return self.nombre_f + ' ' + self.apellido_f 
    
 
 
