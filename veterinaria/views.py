@@ -47,7 +47,7 @@ def signup(request):
 def perfil(request):
     return render(request, 'perfil.html')
 
-def mascota(request, user_d):
+def mascota(request):
     duenio = Dueno.objects.filter(user_d=request.user)
     #mascota = get_object_or_404(Mascota,pk=mascota_id)
     return render (request, 'mascota.html', ({'duenio': duenio}))
