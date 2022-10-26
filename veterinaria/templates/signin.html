@@ -1,7 +1,6 @@
 {% include "header.html" %}
 {% load static %}
 
-<main class="container">
 </br>
 </br>
 </br>
@@ -17,18 +16,13 @@
 </br>
 </br>
 </br> 
-    
-   <div class="row">
-        <div class="col-md-4 offset-md-4 mt-200"
+<h1> Bienvenido</h1>
                 <form method="POST">
                     {% csrf_token %}
                     {{form.as_p}}
                     <button> Enviar </button>
                 </form>
-            </form>
-        </div>
-    </div>
-</main>
+
 
         
 {% include "footer.html" %}
