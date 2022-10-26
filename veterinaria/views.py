@@ -67,7 +67,7 @@ def nueva_atencion(request):
             new_atn = form.save(commit=False)
             new_atn.user =request.user
             new_atn.save()
-            return redirect('mascota')
+            return redirect('/')
         except:
             return render(request, 'nueva_atencion.html', {
             'form': AtenForm,
@@ -96,6 +96,6 @@ def signin(request):
         })
         else:
             login(request, user)
-            return redirect('mascota')    
+            return redirect('/')    
 
 
