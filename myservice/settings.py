@@ -30,11 +30,11 @@ SECRET_KEY = 'django-insecure-*g52g*qai@9m-sukyy$sqo9+!&-biw%#my8fx9n*s!s)&)6%0$
 DEBUG = True
 
 ALLOWED_HOSTS = [ 
-    'huellitas.azurewebsites.net',             
+    'clinicahuellitas.azurewebsites.net',             
     '127.0.0.1'
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://huellitas.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = ['https://clinicahuellitas.azurewebsites.net']
 
 # Application definition
 
