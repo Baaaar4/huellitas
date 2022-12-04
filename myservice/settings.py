@@ -95,9 +95,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
-        'USER': 'sdxqqozjbg',
-        'PASSWORD': '2L113C386F7J34AH$', 
-        'HOST': 'huellitas-server.postgres.database.azure.com',   
+        'USER': 'bouoyzwviq',
+        'PASSWORD': 'BS823733I7M31200$', 
+        'HOST': 'clinicahuellitas-server.postgres.database.azure.com',   
         "PORT":"5432",
         'OPTIONS':{'sslmode':'require'},
     }
