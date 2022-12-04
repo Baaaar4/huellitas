@@ -26,11 +26,11 @@ urlpatterns = [
     path('agendarcita', views.agendarcita, name='agendarcita'),
     path('signup', views.signup, name='signup'),
     path('signin', views.signin, name='signin'),
-    path('perfil', views.perfil, name='perfil'),
     path('mascota', views.mascota, name='mascota'),
-    path('task/<int:mascota_id>/', views.mascota_detail, name='mascota_detail'),
+    path('detail/<int:id_mascota>/', views.mascota_detail, name='mascota_detail'),
     path('logout', views.cerrar, name='logout'),
-    path('atencion/nueva', views.nueva_atencion, name='nueva_atencion'),
-   
+    path('editar/<int:id_atencion>/', views.atencion_edit, name='atencion_edit'),
+    path('eliminar/<int:id_atencion>/', views.atencion_delete, name='atencion_delete'),
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

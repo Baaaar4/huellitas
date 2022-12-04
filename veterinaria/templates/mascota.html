@@ -8,21 +8,61 @@
 </br>
 </br>
 </br>
-<h1> Mascota con su atencion</h1>
+    
+        {% if saludos >= 0 and saludos < 12 %}
+        <h2>¡Buenos días, {{ username }}!, selecciona a la Mascota que atenderás hoy</h2>
+        {% elif saludos >= 12 and saludos < 20 %}
+        <h2>¡Buenas tardes, {{ username }}!, selecciona a la Mascota que atenderás hoy </h2>
+        {% elif saludos >= 20 and saludos < 24 %}
+        <h2>¡Buenas noches, {{ username }}!, selecciona a la Mascota que atenderás hoy </h2>
 
-<ul>
+        {% endif %}
+
+</br>
+</br>
+</br>
+        
+
+<div class="col-lg-6 col-sm-6">
+        <table class="table" >
+                <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Nombre dueño</th>
+                            <th>Rut</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+
         {% for mascota in mascota%}
-
-        <li>
-                <h1>{{mascota.nombre_m}}</h1>
-                <h1>{{mascota.raza}}</h1>
-                <h1>{{mascota.patologias}}</h1>
-                <h1>{{mascota.dueno}}</h1>
-        
-        
-        </li>
+        <tbody>
+                <tr>
+                        <td><a href="{% url 'home' %}">{{mascota.id}} </a></li></td>
+                        <td>{{mascota.nombre}} </td>
+                        <td>{{mascota.dueno.nombre}} </td>
+                        <td>{{mascota.dueno.rut}} </td>
+                        <td>
+                                <a class="btn btn-primary" href="{% url 'mascota_detail'  mascota.id %}"
+                                >Ver ficha </a> 
+                        </td>
+                </tr>
+                
+                  
+              
         {% endfor %}    
+        </table>
+</div>
 
-</ul>
+</br>
+</br>
+</br>
+              
+        
+</br>
+</br>
+</br>
+</br>
+</br>
 
 {% include "footer.html" %}

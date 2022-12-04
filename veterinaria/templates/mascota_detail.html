@@ -8,19 +8,124 @@
 </br>
 </br>
 </br>
-<h1> {{mascota.nombre_m}}</h1>
+<h1> Ficha de mascota</h1>
 
-<ul>
-        {% for mascota in mascota%}
+<div class="col-lg-6 col-sm-6">
+        <table class="table" >
+                <tr>
+                  <th>Nombre</th>
+                  <td>{{mascota.nombre}}</td>
+                </tr>
+                <tr>
+                        <th>Tipo</th>
+                        <td>{{mascota.tipo}}</td>
+                </tr>
+                <tr>
+                        <th>Raza</th>
+                        <td>{{mascota.raza}}</td>
+                </tr>
+                <tr>
+                        <th>Edad</th>
+                        <td>{{mascota.edad}}</td>
+                </tr>
+                <tr>
+                        <th>Patologías</th>
+                        <td>{{mascota.patologias}}</td>
+                </tr>
+                <tr>
+                        <th>Dueño</th>
+                        <td>{{mascota.dueno.nombre}}</td>
+                </tr>
+                
+              </table>
+                
 
-        <li>
-                <h1>{{mascota.raza}}</h1>
-                <h1>{{mascota.patologias}}</h1>
-                <h1>{{mascota.dueno}}</h1>
+      
+</table>
+</div>
+</br>
+</br>
+</br>
+<h1> Registrar Atenciones</h1>
+</br>
+</br>
+</br>
+
+<form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+</form>
+</br>
+</br>
+</br>
+</br>
+<h1> Todas las Atenciones</h1>
+</br>
+</br>
+
+{% if atenciones %}
+                
+                {% for atencion in atenciones %}
+        <div class="col-lg-6 col-sm-6">
+                 <table class="table" >
+               
+                <tr>
+                  <th>Fecha atención</th>
+                  <td>{{ atencion.publish_date }}</td>
+                </tr>
+                <tr>
+                        <th>Descripción</th>
+                        <td>{{ atencion.descripcion }}</td>
+                </tr>
+                <tr>
+                        <th>Medicamentos</th>
+                        <td>{{ atencion.medicamentos }}</td>
+                </tr>
+                <tr>
+                        <th>Servicio de peluquería</th>
+                        {% if atencion.peluqueria is False %}
+                        <td> No </td>
+                        {% else %}
+                        <td> Si </td>
+                        {% endif %}
+                </tr>
+                <tr>
+                        <th>Atendido por</th>
+                        <td>{{ username }}</td>
+                </tr>
+                
+                <tr>
+                        <th>Acciones</th>
+                        <td>
+                                <a class="btn btn-primary" href="{% url 'atencion_edit'  atencion.id %}"
+                                >Editar </a> 
+                                <a class="btn btn-danger" href="{% url 'atencion_delete'  atencion.id %}"
+                                >Eliminar</a> 
+                        </td>
+                        
+                                
+                        
+                </tr>
+                
+              </table>
+              
+        </div>
+</br>
+</br>
+</br>
+        {% endfor %}
+
+{% else %}
+
+<h1> No hay registros </h1>
+
+ {% endif %}
+
+
+</br>
+</br>
+</br>
         
-        </li>
-        {% endfor %}    
-
-</ul>
 
 {% include "footer.html" %}

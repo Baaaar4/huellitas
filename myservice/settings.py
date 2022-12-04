@@ -91,7 +91,7 @@ STATIC_URL = '/static/'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-'''DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
@@ -101,7 +101,15 @@ STATIC_URL = '/static/'
         "PORT":"5432",
         'OPTIONS':{'sslmode':'require'},
     }
+}
+
+'''DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }'''
+
 
 
 # Password validation

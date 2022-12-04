@@ -48,6 +48,7 @@
                 <li><a class="nav-link scrollto" href="{% url 'servicios' %}">Servicios</a></li>
                {% if user.is_authenticated %}
                  <li><a class="nav-link scrollto" href="{% url 'logout' %}">Logout</a></li>
+                 <li><a class="nav-link scrollto" href="{% url 'mascota' %}">Mascotas</a></li>
                 {% else %}
                  <li><a class="nav-link scrollto" href="{% url 'signup' %}">Registrarse</a></li>
                  <li><a class="nav-link scrollto" href="{% url 'signin' %}">Entrar</a></li>

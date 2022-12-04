@@ -1,0 +1,62 @@
+{% include "header.html" %}
+{% load static %}
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+<h1> Atenciones Mascota</h1>
+
+<form method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+</form>
+</br>
+</br>
+</br>
+
+        <div class="col-lg-6 col-sm-6">
+                 <table class="table" >
+               
+                <tr>
+                  <th>Fecha atención</th>
+                  <td>{{ atencion.publish_date }}</td>
+                </tr>
+                <tr>
+                        <th>Descripción</th>
+                        <td>{{ atencion.descripcion }}</td>
+                </tr>
+                <tr>
+                        <th>Medicamentos</th>
+                        <td>{{ atencion.medicamentos }}</td>
+                </tr>
+                <tr>
+                        <th>Servicio de peluquería</th>
+                        {% if atencion.peluqueria is False %}
+                        <td> No </td>
+                        {% else %}
+                        <td> Si </td>
+                        {% endif %}
+                </tr>
+                <tr>
+                        <th>Atendido por</th>
+                        <td>{{ username }}</td>
+                </tr>
+          
+                
+              </table>
+              
+        </div>
+</br>
+</br>
+</br>
+       
+
+        
+
+{% include "footer.html" %}
